@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -eu
+
+MATOMO_VERSION=$(cat ./bin/version)
+MATOMO_DIR="$1/target/uberzip"
+MATOMO_ZIP="$MATOMO_DIR/metabase.zip"
+MATOMO_URL="https://builds.matomo.org/matomo-${MATOMO_VERSION}.zip"
+
+mkdir -p "$MATOMO_DIR"
+
+echo -n "-----> Downloading Matomo... from ${MATOMO_URL} to ${MATOMO_ZIP}"
+curl -s --retry 3 -o "${MATOMO_ZIP}" -L "${MATOMO_URL}"
+echo "done"
