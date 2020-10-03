@@ -1,0 +1,19 @@
+{
+    "name": "DbCommands",
+    "description": "Custom commands to manipulate the MySQL database.",
+    "version": "3.0.0",
+    "theme": false,
+    "require": {
+        "piwik": ">=3.6.1-stable,<4.0.0-b1"
+    },
+    "authors": [
+        {
+            "name": "Scalingo",
+            "email": "leo@scalingo.com",
+            "homepage": "https://scalingo.com"
+        }
+    ],
+    "homepage": "https://matomo.org",
+    "license": "GPL v3+",
+    "keywords": ["php", "database", "tooling"]
+}
