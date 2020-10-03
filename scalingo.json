@@ -1,0 +1,42 @@
+{
+  "name": "Matomo",
+  "homepage": "https://matomo.org",
+  "description": "Matomo is the leading open alternative to Google Analytics that gives you full control over your data. Matomo lets you easily collect data from websites, apps & the IoT and visualise this data and extract insights. Privacy is built-in.",
+  "logo": "https://static.matomo.org/wp-content/uploads/2018/11/matomo-logo-final-1-340x50.png",
+  "scripts": {
+    "first-deploy": "bash bin/first-deploy-init.sh"
+  },
+  "env": {
+    "MATOMO_INIT_USER_LOGIN": {
+      "description": "username of the superuser",
+      "required": true
+    },
+    "MATOMO_INIT_USER_EMAIL": {
+      "description": "email of the superuser",
+      "required": true
+    },
+    "MATOMO_INIT_USER_PASSWORD": {
+      "description": "password of the superuser",
+      "required": true
+    },
+    "MATOMO_INIT_SITE_NAME": {
+      "description": "name of the initial site sending analytics",
+      "required": true
+    },
+    "MATOMO_INIT_SITE_URL": {
+      "description": "URL of the initial site sending analytics",
+      "required": true
+    },
+    "MATOMO_GENERAL_SALT": {
+      "description": "Encryption salt used by Matomo",
+      "generator": "secret"
+    },
+    "MAIL_URL": {
+      "description": "URL to the mailserver which is going to send Matomo emails",
+      "required": false
+    }
+  },
+  "addons": [
+    "mysql:mysql-sandbox"
+  ]
+}
