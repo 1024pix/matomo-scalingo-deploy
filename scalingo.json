@@ -34,6 +34,10 @@
     "MAIL_URL": {
       "description": "URL to the mailserver which is going to send Matomo emails",
       "required": false
+    },
+    "MATOMO_PLUGINS_API_LICENSE_KEY": {
+      "description": "Matomo API key used for fetching purchased plugins",
+      "required": false
     }
   },
   "addons": [
