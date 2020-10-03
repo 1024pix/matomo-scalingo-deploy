@@ -1,11 +1,7 @@
 #!/bin/bash
 
-set -eu
+bin/generate-config-ini.sh
 
-echo "Generating Matomo configuration from environment"
-
-bin/generate_config.sh
-bin/install_scalingo_plugins.sh
-#bin/install_purchased_plugins.sh
+bin/install-purchased-plugins.sh
 
 exec bash bin/run
