@@ -1,0 +1,14 @@
+$db = parse_url(getenv('DATABASE_URL'));
+?>
+
+[database]
+host = "<?php echo @$db['host']; ?>"
+username = "<?php echo @$db['user']; ?>"
+password = "<?php echo @$db['pass']; ?>"
+dbname = "<?php echo trim(@$db['path'], '/'); ?>"
+port = <?php echo @$db['port'].PHP_EOL; ?>
+
+[General]
+session_save_handler = dbtables
+assume_secure_protocol = 1
+proxy_client_headers[] = HTTP_X_FORWARDED_FOR

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -eu
+
 echo "Installing and activating Matomo purchased plugins"
 
 purchased_plugins=(
