@@ -27,10 +27,6 @@
       "description": "URL of the initial site sending analytics",
       "required": true
     },
-    "MATOMO_GENERAL_SALT": {
-      "description": "Encryption salt used by Matomo",
-      "generator": "secret"
-    },
     "MAIL_URL": {
       "description": "URL to the mailserver which is going to send Matomo emails",
       "required": false
@@ -38,6 +34,10 @@
     "MATOMO_LICENSE_KEY": {
       "description": "Matomo API key used for fetching purchased plugins",
       "required": false
+    },
+    "MATOMO_GENERAL_SALT": {
+      "description": "Encryption salt used by Matomo",
+      "generator": "secret"
     }
   },
   "addons": [

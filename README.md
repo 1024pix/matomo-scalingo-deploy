@@ -70,6 +70,72 @@ There is two ways to upgrade your Matomo instance:
 - a) wait for the [original repository](https://my.scalingo.com/deploy?source=https://github.com/1024pix/matomo-scalingo-deploy) to upgrade the current version and rebase your fork on it
 - b) wait for matomo-buildpack to release a new version and change yourself the buidpack in `./buildpacks` file
 
+## Advanced usage
+
+### Playing with the Matomo console
+
+Matomo provides a [CLI console](https://developer.matomo.org/guides/piwik-on-the-command-line) within its distribution.
+
+This program is written in PHP and requires such an environment to work.
+
+You can easily access and run the Matomo console commands in a [Scalingo one-off container](https://doc.scalingo.com/platform/app/tasks). But in order to do it, you must previously regenerate the `/app/config/config.ini.php` file, in the same way as the `bin/start-matomo.sh` script.
+
+```shell script
+scalingo --app my-matomo-instance run bash # run a one-off container
+./bin/generate-config-ini.sh # generate the /app/config/config.ini.php file
+php console list # list all the Matomo console commands
+```
+
+### Exploring the database
+
+First, run a one-off Scalingo container that loads the MySQL CLI:
+
+```shell script
+scalingo --app my-matomo-instance mysql-console # run a one-off container
+```
+
+Then, connect to your Matomo database and enjoy your MySQL commands.
+
+```shell script
+mysql> show databases; # list MySQL databases
+mysql> use my_matomo_i_4515; # select the current database
+mysql> show tables; # list all the DB tables
+```
+
+### Force SSL
+
+According to the [Matomo documentation](https://fr.matomo.org/faq/how-to/faq_91/):
+
+> Configuring Matomo (Piwik) so that all requests are made over SSL (https://) is an easy way to improve security and keep your data safer.
+
+In the Scalingo app settings, enable the "Force HTTPS" option. 
+
+In the Scalingo app environment, add the environment variable:
+
+```
+MATOMO_GENERAL_FORCE_SSL=1
+```
+
+Save your configuration and restart your application. That's it!
+
+### Disable Matomo Tracking
+
+According to the [Matomo documentation](https://matomo.org/faq/how-to/faq_111/):
+
+> Before a Database upgrade on a high traffic Matomo (Piwik) server, it is highly recommended to disable Matomo Tracking.
+
+In the Scalingo app environment, add the environment variable:
+
+```
+MATOMO_TRACKER_RECORD_STATISTICS=0
+```
+
+Save your configuration and restart your application. That's it!
+
+### Configuring a (recommended) auto-archiving CRON job
+
+TODO…
+
 ## Licensing
 
 This project is licensed under the [AGPL-3.0 license](https://choosealicense.com/licenses/agpl-3.0/) license.
