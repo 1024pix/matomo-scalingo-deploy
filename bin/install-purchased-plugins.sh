@@ -2,7 +2,7 @@
 
 echo "Installing and activating Matomo purchased plugins"
 
-if [[ -z "$MATOMO_PLUGINS_API_LICENSE_KEY" ]]; then
+if [[ -z "$MATOMO_LICENSE_KEY" ]]; then
   echo "Do not fetch purchased plugins because no Matomo plugins API license key defined"
 else
   purchased_plugins=(
@@ -16,7 +16,7 @@ else
     plugin_name=${plugin%%:*}
     plugin_version=${plugin##*:}
 
-    access_token="${MATOMO_PLUGINS_API_LICENSE_KEY}"
+    access_token="$MATOMO_LICENSE_KEY"
     filename="plugins/${plugin_name}.zip"
     url="https://plugins.matomo.org/api/2.0/plugins/${plugin_name}/download/${plugin_version}"
 
