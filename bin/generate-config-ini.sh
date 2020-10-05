@@ -1,6 +1,6 @@
 #!/bin/bash
 
-php ./scalingo/generate.config.ini.php
+php ./scripts/generate.config.ini.php
 
-mv ./scalingo/config.ini.php ./config
+mv ./scripts/config.ini.php ./config
 
