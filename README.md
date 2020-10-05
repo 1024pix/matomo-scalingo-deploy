@@ -10,19 +10,19 @@ This project is based on and uses the PaaS buildpack [matomo-buildpack](https://
 
 ### Installation
 
-**Pre-requesites:**
-- you must be connected to your GitHub account
-- you must be connected to a validated (with payment mode) Scalingo account
-
-**Steps:**
-1. Fork this repository
-2. From the GitHub interface of your fork, edit the `README.md` file and change the "Deploy to Scalingo" href link to your repository's one
-3. Save, commit and push your change
-4. Click on the "one-click deployment" button below ; you will be redirected to the Scalingo new application interface
-5. Fill-up the form about the Matomo application environment variables and follow the instructions
+As a pre-requesites, you must be connected to a valid (with a valid payment method) Scalingo account.
 
 [![Deploy to Scalingo](https://cdn.scalingo.com/deploy/button.svg)](https://my.scalingo.com/deploy?source=https://github.com/1024pix/matomo-scalingo-deploy)
 
+Then follow the steps below:
+
+1. Fork this repository
+2. From the GitHub interface of your fork, edit the `README.md` file and change the "Deploy to Scalingo" href link to your repository's one
+3. Save, commit and push your change
+4. Click on the "one-click deployment" button above ; you will be redirected to the Scalingo new application interface
+5. Fill-up the form about the Matomo application environment variables and follow the instructions
+
+![Scalingo new Matomo app form](assets/scalingo_new_matomo_app_form.png)
 
 ### Configuration
 
@@ -69,3 +69,7 @@ The first time, you may need to manually activate the plugins in the interface. 
 There is two ways to upgrade your Matomo instance:
 - a) wait for the [original repository](https://my.scalingo.com/deploy?source=https://github.com/1024pix/matomo-scalingo-deploy) to upgrade the current version and rebase your fork on it
 - b) wait for matomo-buildpack to release a new version and change yourself the buidpack in `./buildpacks` file
+
+## Licensing
+
+This project is licensed under the [AGPL-3.0 license](https://choosealicense.com/licenses/agpl-3.0/) license.
