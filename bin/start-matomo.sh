@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Starting Matomo application..."
+
 bin/generate-config-ini.sh
 
 bin/install-purchased-plugins.sh

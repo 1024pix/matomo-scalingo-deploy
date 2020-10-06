@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Initializing Matomo database and users..."
+
 bin/generate-config-ini.sh
 
 php console database:create-tables && \
