@@ -44,6 +44,16 @@ export MATOMO_DATABASE_USERNAME=root
 export MATOMO_DATABASE_PASSWORD=secure
 ```
 
+#### Activating Matomo Tag Manager (TMS)
+
+By default, Matomo TMS is not activated.
+
+If you activate it manually, in your Matomo dashboard, then the plugin will be disabled the next time your application/container will restart.
+
+It is because, the first time the plugin is activated, some databases are created. At the initialization of the application, if these tables are present, then the nav bar tab is not shown. And since this *core plugin* is not activated by default, it is not embedded in the `[General] PluginsInstalled[]` section in the `config/config.ini.php` distributed file.
+
+Thus, if you want to use Matomo TMS, you must set the environment variable `MATOMO_TAG_MANAGER_ENABLED=true`.
+
 #### Manage Purchased plugins
 
 If not yet done, set the environment variable `MATOMO_LICENSE_KEY` with your own [Matomo license key](https://fr.matomo.org/faq/how-to/how-do-i-get-a-license-key-for-the-maxmind-geolocation-database/) in your Scalingo app.

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Installing and activating Matomo purchased plugins..."
+echo "Fetching Matomo purchased plugins..."
 
 if [[ -z "$MATOMO_LICENSE_KEY" ]]; then
   echo "Do not fetch purchased plugins because no Matomo plugins API license key defined"
@@ -26,19 +26,15 @@ else
       if curl -X POST -F "access_token=$access_token" -L "${url}" -o "$zip_file_location"; then
 
         echo "Unzipping $zip_file_location to $plugins_dir/$plugin_name"
-        unzip "$zip_file_location" -d "$plugins_dir"
+        unzip -q "$zip_file_location" -d "$plugins_dir"
 
         if [[ -f "$zip_file_location" ]]; then
           echo "Removing $zip_file_location"
           rm -f "$zip_file_location"
-
-          echo "Activating plugin $plugin_name in Matomo"
-          php console plugin:activate "$plugin_name"
         fi
       else
         echo "Something went wrong"
       fi
     done
-    IFS=' '
   fi
 fi
