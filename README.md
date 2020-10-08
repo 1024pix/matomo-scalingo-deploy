@@ -66,12 +66,6 @@ MATOMO_PURCHASED_PLUGINS=Funnels:3.1.22,ActivityLog:3.4.0,RollUpReporting:3.2.7
 
 > Unfortunately, the Matomo plugins API does not provide a way to fetch the latest version of a given plugin for a given version à of Matomo (3.X or 4.X). It is why we must precise the version of each plugin.
 
-If not yet done, configure your Matomo license key in the market place (entry "Platform" > "Market place" in the left nav bar).   
-
-![License key form](assets/license_key_form.png)
-
-The first time, you may need to manually activate the plugins in the interface. Or you can simply restart the container and let the `bin/start-matomo.sh` script do it for you.
-
 ### Upgrade
 
 > ⚠️ We strongly advise you to **not use the auto-update feature in the Matomo administration** interface at the risk of lose all your changes and having critical problems the next time your app will restart! 
