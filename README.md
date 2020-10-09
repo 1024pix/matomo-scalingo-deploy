@@ -112,8 +112,6 @@ According to the [Matomo documentation](https://fr.matomo.org/faq/how-to/faq_91/
 
 > Configuring Matomo (Piwik) so that all requests are made over SSL (https://) is an easy way to improve security and keep your data safer.
 
-In the Scalingo app settings, enable the "Force HTTPS" option. 
-
 In the Scalingo app environment, add the environment variable:
 
 ```
@@ -137,6 +135,10 @@ MATOMO_TRACKER_RECORD_STATISTICS=0
 Save your configuration and restart your application. That's it!
 
 ### Configuring a (recommended) auto-archiving CRON job
+
+TODO…
+
+### Configuring multi-servers
 
 TODO…
 
