@@ -35,6 +35,24 @@
       "description": "Matomo API key used for fetching purchased plugins",
       "required": false
     },
+    "MATOMO_PURCHASED_PLUGINS": {
+      "description": "Your purchased Matomo plugins",
+      "required": false
+    },
+    "MATOMO_TAG_MANAGER_ENABLED": {
+      "description": "Boolean to activate or not Matomo Tag Manager module",
+      "required": false,
+      "value": "true"
+    },
+    "MATOMO_AUTO_ARCHIVING_FREQUENCY": {
+      "description": "Number of seconds between two reports auto-archiving",
+      "required": false,
+      "value": 3600
+    },
+    "MATOMO_BASE_URL": {
+      "description": "URL of the instance used by the auto-archiving reports job",
+      "required": false
+    },
     "MATOMO_GENERAL_SALT": {
       "description": "Encryption salt used by Matomo",
       "generator": "secret"
