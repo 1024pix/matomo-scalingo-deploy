@@ -136,6 +136,23 @@ Save your configuration and restart your application. That's it!
 
 ### Configuring a (recommended) auto-archiving CRON job
 
+By default, archive reports are processed when viewed from the browser.
+
+> For medium to high traffic websites, it is recommended to disable Matomo archiving to trigger from the browser. Instead, Matomo recommends that you setup a cron job to process reports every hour.
+
+This project comes with a pre-configured scheduled task, see command "cron" in the `Procfile` and the script `bin/auto-archiving-reports`.
+
+To enable, auto-archiving reports processing, set the two environment variables below:
+
+```shell script
+MATOMO_AUTO_ARCHIVING_FREQUENCY=3600 # in seconds
+MATOMO_BASE_URL=https://my-matomo-instance.osc-fr1.scalingo.io # your application base URL
+```
+
+Think to disable the `Archive reports when viewed from the browser` option in the "Matomo > System > General settings > Archiving settings" menu.
+
+### Configuring e-mail sending
+
 TODO…
 
 ### Configuring multi-servers
