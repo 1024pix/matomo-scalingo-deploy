@@ -2,6 +2,6 @@
 
 echo "Setting license key..."
 
-if [[ -z "$MATOMO_LICENSE_KEY" ]]; then
-  php console license:set "$MATOMO_LICENSE_KEY"
+if [[ -n "$MATOMO_LICENSE_KEY" ]]; then
+  php console license:set --licenseKey="$MATOMO_LICENSE_KEY"
 fi
