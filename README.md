@@ -28,21 +28,8 @@ Then follow the steps below:
 
 #### Override Matomo config
 
-The Matomo buildpack [adds some plugins](https://github.com/1024pix/matomo-buildpack/tree/master/plugins) to the official distribution and especially a copy of the Matomo plugin [EnvironmentVariables](https://plugins.matomo.org/EnvironmentVariables).
-
-This extension allows you to specify Matomo config in environment variables instead of the config file.
-
-For example to overwrite the database username and password which is usually defined in the `config/config.ini.php` like this:
-```
-[database]
-username = "root"
-password = "secure"
-```
-using environment variables like this:
-```
-export MATOMO_DATABASE_USERNAME=root
-export MATOMO_DATABASE_PASSWORD=secure
-```
+To update the matomo config, you should set environnement variables and use them in the `scripts/config.ini.php.tmpl`.
+For instance, in our template, we can set the `MATOMO_GENERAL_FORCE_SSL` to `1` to enable the `force_ssl` config option.
 
 #### Activating Matomo Tag Manager (TMS)
 
@@ -53,6 +40,10 @@ If you activate it manually, in your Matomo dashboard, then the plugin will be d
 It is because, the first time the plugin is activated, some databases are created. At the initialization of the application, if these tables are present, then the nav bar tab is not shown. And since this *core plugin* is not activated by default, it is not embedded in the `[General] PluginsInstalled[]` section in the `config/config.ini.php` distributed file.
 
 Thus, if you want to use Matomo TMS, you must set the environment variable `MATOMO_TAG_MANAGER_ENABLED=true`.
+
+#### Activating plugins
+
+Set the environnement variable `MATOMO_PLUGINS` with a comma separated plugin list name. For instance you can enable the DbCommands, AdminCommands and LicenseKeyCommands plugins with `MATOMO_PLUGINS=DbCommands,AdminCommands,LicenseKeyCommands`.
 
 #### Manage Purchased plugins
 
