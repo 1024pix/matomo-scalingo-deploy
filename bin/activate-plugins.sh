@@ -1,9 +1,19 @@
 #!/bin/bash
 
-echo "Activating Matomo Tag Manager..."
-
 if [[ "$MATOMO_TAG_MANAGER_ENABLED" == true ]]; then
+  echo "Activating Matomo Tag Manager..."
   php console plugin:activate "TagManager"
+fi
+
+if [[ "$MATOMO_PLUGINS" ]]; then
+  IFS=',' read -ra plugins <<<"$MATOMO_PLUGINS"
+
+  for plugin in "${plugins[@]}"; do
+    plugin_name=${plugin%%:*}
+
+    echo "Activating $plugin_name"
+    php console plugin:activate "$plugin_name"
+  done
 fi
 
 echo "Activating Matomo purchased plugins..."
