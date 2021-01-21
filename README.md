@@ -28,8 +28,8 @@ Then follow the steps below:
 
 #### Override Matomo config
 
-To update the matomo config, you should set environnement variables and use them in the `scripts/config.ini.php.tmpl`.
-For instance, in our template, we can set the `MATOMO_GENERAL_FORCE_SSL` to `1` to enable the `force_ssl` config option.
+To update the matomo config, edit the config file `scripts/config.ini.php.tmpl`.
+If you have secrets, set environnement variables and use them in the `scripts/config.ini.php.tmpl` file. For instance, we set the `MATOMO_SALT` this way.
 
 #### Activating plugins
 
