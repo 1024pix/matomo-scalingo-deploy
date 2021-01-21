@@ -8,7 +8,7 @@ else
   echo "Start auto-archiving reports CRON job"
   while true; do
     echo "Archiving reports... "
-    php console core:archive --url "$MATOMO_BASE_URL"
+    php console core:archive --url "https://$MATOMO_HOST"
     echo "done"
     sleep "$MATOMO_AUTO_ARCHIVING_FREQUENCY"
   done

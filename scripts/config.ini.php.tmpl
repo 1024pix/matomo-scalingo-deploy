@@ -16,6 +16,6 @@ force_ssl = 1
 <?php if (getenv('MATOMO_SALT')) { ?>
 salt = "<?php echo getenv('MATOMO_SALT') ?>"
 <?php } ?>
-<?php if (getenv('MATOMO_GENERAL_TRUSTED_HOSTS')) { ?>
-trusted_hosts[] = <?php echo getenv('MATOMO_GENERAL_TRUSTED_HOSTS') ?>
+<?php if (getenv('MATOMO_HOST')) { ?>
+trusted_hosts[] = <?php echo getenv('MATOMO_HOST') ?>
 <?php } ?>

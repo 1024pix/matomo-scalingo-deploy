@@ -48,8 +48,8 @@
       "required": false,
       "value": 3600
     },
-    "MATOMO_BASE_URL": {
-      "description": "URL of the instance used by the auto-archiving reports job",
+    "MATOMO_HOST": {
+      "description": "Host of the instance used by the auto-archiving reports job",
       "required": false
     },
     "MATOMO_GENERAL_SALT": {
