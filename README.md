@@ -31,16 +31,6 @@ Then follow the steps below:
 To update the matomo config, you should set environnement variables and use them in the `scripts/config.ini.php.tmpl`.
 For instance, in our template, we can set the `MATOMO_GENERAL_FORCE_SSL` to `1` to enable the `force_ssl` config option.
 
-#### Activating Matomo Tag Manager (TMS)
-
-By default, Matomo TMS is not activated.
-
-If you activate it manually, in your Matomo dashboard, then the plugin will be disabled the next time your application/container will restart.
-
-It is because, the first time the plugin is activated, some databases are created. At the initialization of the application, if these tables are present, then the nav bar tab is not shown. And since this *core plugin* is not activated by default, it is not embedded in the `[General] PluginsInstalled[]` section in the `config/config.ini.php` distributed file.
-
-Thus, if you want to use Matomo TMS, you must set the environment variable `MATOMO_TAG_MANAGER_ENABLED=true`.
-
 #### Activating plugins
 
 Set the environnement variable `MATOMO_PLUGINS` with a comma separated plugin list name. For instance you can enable the DbCommands, AdminCommands and LicenseKeyCommands plugins with `MATOMO_PLUGINS=DbCommands,AdminCommands,LicenseKeyCommands`.

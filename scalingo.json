@@ -39,10 +39,9 @@
       "description": "Your purchased Matomo plugins",
       "required": false
     },
-    "MATOMO_TAG_MANAGER_ENABLED": {
-      "description": "Boolean to activate or not Matomo Tag Manager module",
+    "MATOMO_PLUGINS": {
+      "description": "The plugins to install",
       "required": false,
-      "value": "true"
     },
     "MATOMO_AUTO_ARCHIVING_FREQUENCY": {
       "description": "Number of seconds between two reports auto-archiving",

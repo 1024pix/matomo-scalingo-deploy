@@ -1,10 +1,5 @@
 #!/bin/bash
 
-if [[ "$MATOMO_TAG_MANAGER_ENABLED" == true ]]; then
-  echo "Activating Matomo Tag Manager..."
-  php console plugin:activate "TagManager"
-fi
-
 if [[ "$MATOMO_PLUGINS" ]]; then
   IFS=',' read -ra plugins <<<"$MATOMO_PLUGINS"
 
