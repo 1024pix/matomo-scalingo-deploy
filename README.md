@@ -28,31 +28,12 @@ Then follow the steps below:
 
 #### Override Matomo config
 
-The Matomo buildpack [adds some plugins](https://github.com/1024pix/matomo-buildpack/tree/master/plugins) to the official distribution and especially a copy of the Matomo plugin [EnvironmentVariables](https://plugins.matomo.org/EnvironmentVariables).
+To update the matomo config, edit the config file `scripts/config.ini.php.tmpl`.
+If you have secrets, set environnement variables and use them in the `scripts/config.ini.php.tmpl` file. For instance, we set the `MATOMO_SALT` this way.
 
-This extension allows you to specify Matomo config in environment variables instead of the config file.
+#### Activating plugins
 
-For example to overwrite the database username and password which is usually defined in the `config/config.ini.php` like this:
-```
-[database]
-username = "root"
-password = "secure"
-```
-using environment variables like this:
-```
-export MATOMO_DATABASE_USERNAME=root
-export MATOMO_DATABASE_PASSWORD=secure
-```
-
-#### Activating Matomo Tag Manager (TMS)
-
-By default, Matomo TMS is not activated.
-
-If you activate it manually, in your Matomo dashboard, then the plugin will be disabled the next time your application/container will restart.
-
-It is because, the first time the plugin is activated, some databases are created. At the initialization of the application, if these tables are present, then the nav bar tab is not shown. And since this *core plugin* is not activated by default, it is not embedded in the `[General] PluginsInstalled[]` section in the `config/config.ini.php` distributed file.
-
-Thus, if you want to use Matomo TMS, you must set the environment variable `MATOMO_TAG_MANAGER_ENABLED=true`.
+Set the environnement variable `MATOMO_PLUGINS` with a comma separated plugin list name. For instance you can enable the DbCommands, AdminCommands and LicenseKeyCommands plugins with `MATOMO_PLUGINS=DbCommands,AdminCommands,LicenseKeyCommands`.
 
 #### Manage Purchased plugins
 
@@ -146,7 +127,7 @@ To enable, auto-archiving reports processing, set the two environment variables 
 
 ```shell script
 MATOMO_AUTO_ARCHIVING_FREQUENCY=3600 # in seconds
-MATOMO_BASE_URL=https://my-matomo-instance.osc-fr1.scalingo.io # your application base URL
+MATOMO_HOST=my-matomo-instance.osc-fr1.scalingo.io # your application host (the https:// is added automatically)
 ```
 
 Think to disable the `Archive reports when viewed from the browser` option in the "Matomo > System > General settings > Archiving settings" menu.
