@@ -20,3 +20,6 @@ salt = "<?php echo getenv('MATOMO_SALT') ?>"
 <?php if (getenv('MATOMO_HOST')) { ?>
 trusted_hosts[] = <?php echo getenv('MATOMO_HOST') ?>
 <?php } ?>
+<?php if (getenv('MATOMO_MULTI_SERVER_ENVIRONMENT')) { ?>
+multi_server_environment = "<?php echo getenv('MATOMO_MULTI_SERVER_ENVIRONMENT') ?>"
+<?php } ?>
