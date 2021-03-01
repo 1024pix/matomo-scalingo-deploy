@@ -41,7 +41,7 @@
     },
     "MATOMO_PLUGINS": {
       "description": "The plugins to install",
-      "required": false,
+      "required": false
     },
     "MATOMO_AUTO_ARCHIVING_FREQUENCY": {
       "description": "Number of seconds between two reports auto-archiving",
