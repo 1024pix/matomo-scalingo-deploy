@@ -16,6 +16,7 @@ always_load_commands_from_plugin=DbCommands,AdminCommands,LicenseKeyCommands
 proxy_client_headers[] = HTTP_X_FORWARDED_FOR
 proxy_client_headers[] = HTTP_CLIENT_IP
 proxy_host_headers[] = HTTP_X_FORWARDED_HOST
+enable_trusted_host_check = 0
 
 <?php if (getenv('MATOMO_SALT')) { ?>
 salt = "<?php echo getenv('MATOMO_SALT') ?>"
