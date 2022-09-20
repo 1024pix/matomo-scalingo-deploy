@@ -12,7 +12,7 @@ This project is based on and uses the PaaS buildpack [matomo-buildpack](https://
 
 As a pre-requesites, you must be connected to a valid (with a valid payment method) Scalingo account.
 
-[![Deploy to Scalingo](https://cdn.scalingo.com/deploy/button.svg)](https://my.scalingo.com/deploy?source=https://github.com/1024pix/matomo-scalingo-deploy)
+[![Deploy to Scalingo](https://cdn.scalingo.com/deploy/button.svg)](https://my.scalingo.com/deploy?source=https://github.com/betagouv/matomo-scalingo-deploy)
 
 Then follow the steps below:
 
@@ -25,6 +25,12 @@ Then follow the steps below:
 ![Scalingo new Matomo app form](assets/scalingo_new_matomo_app_form.png)
 
 ### Configuration
+
+#### Override Matomo version
+You want to a different matomo version:
+- set env variable `MATOMO_VERSION` to the new one
+- Rebuild and deploy your app
+- Then upgrade database: execute an on/off container with `bash bin/first-deploy-init.sh`
 
 #### Override Matomo config
 
@@ -52,8 +58,9 @@ MATOMO_PURCHASED_PLUGINS=Funnels:3.1.22,ActivityLog:3.4.0,RollUpReporting:3.2.7
 > ⚠️ We strongly advise you to **not use the auto-update feature in the Matomo administration** interface at the risk of lose all your changes and having critical problems the next time your app will restart! 
 
 There is two ways to upgrade your Matomo instance:
-- a) wait for the [original repository](https://my.scalingo.com/deploy?source=https://github.com/1024pix/matomo-scalingo-deploy) to upgrade the current version and rebase your fork on it
-- b) wait for matomo-buildpack to release a new version and change yourself the buidpack in `./buildpacks` file
+- a) change the env variable MATOMO_VERSION in your setting to the new one, rebuild/deploy and execute `bash bin/first-deploy-init.sh` in an on/off container
+- b) wait for the [original repository](https://my.scalingo.com/deploy?source=https://github.com/betagouv/matomo-scalingo-deploy) to upgrade the current version and rebase your fork on it
+- c) wait for [matomo buildpack](https://github.com/betagouv/matomo-buildpack) to release a new version and change yourself the buidpack in `./buildpacks` file
 
 ## Advanced usage
 
