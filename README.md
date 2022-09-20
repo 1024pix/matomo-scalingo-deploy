@@ -4,7 +4,9 @@
 
 [Scalingo](https://scalingo.com) is a high-availability Platform as a Service (PaaS), like Heroku or Dokku.
 
-This project is based on and uses the PaaS buildpack [matomo-buildpack](https://github.com/1024pix/matomo-buildpack).
+This project is now based on [betagouv matomo-buildpack](https://github.com/betagouv/matomo-buildpack).
+
+It was inspired by the PaaS buildpack [1024 pix matomo-buildpack](https://github.com/1024pix/matomo-buildpack).
 
 ## Usage
 
