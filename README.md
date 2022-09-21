@@ -59,7 +59,7 @@ MATOMO_PURCHASED_PLUGINS=Funnels:3.1.22,ActivityLog:3.4.0,RollUpReporting:3.2.7
 
 > ⚠️ We strongly advise you to **not use the auto-update feature in the Matomo administration** interface at the risk of lose all your changes and having critical problems the next time your app will restart! 
 
-There is two ways to upgrade your Matomo instance:
+There is multiple ways to upgrade your Matomo instance:
 - a) change the env variable MATOMO_VERSION in your setting to the new one, rebuild/deploy and execute `bash bin/first-deploy-init.sh` in an on/off container
 - b) wait for the [original repository](https://my.scalingo.com/deploy?source=https://github.com/betagouv/matomo-scalingo-deploy) to upgrade the current version and rebase your fork on it
 - c) wait for [matomo buildpack](https://github.com/betagouv/matomo-buildpack) to release a new version and change yourself the buidpack in `./buildpacks` file
