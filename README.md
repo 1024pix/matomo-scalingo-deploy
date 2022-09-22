@@ -32,7 +32,7 @@ Then follow the steps below:
 You want to a different matomo version:
 - set env variable `MATOMO_VERSION` to the new one
 - Rebuild and deploy your app
-- Then upgrade database: execute an on/off container with `bash bin/first-deploy-init.sh`
+- Then upgrade database: execute an one-off container with `bash bin/first-deploy-init.sh`
 
 #### Override Matomo config
 
@@ -140,6 +140,18 @@ MATOMO_HOST=my-matomo-instance.osc-fr1.scalingo.io # your application host (the 
 ```
 
 Think to disable the `Archive reports when viewed from the browser` option in the "Matomo > System > General settings > Archiving settings" menu.
+
+### Configuring DBIP/GEOIP2
+
+To download and install DBIP (dbip-city-lite-YYYY-MM.mmdb.gz) , set the variable and rebuild your app.
+
+```shell script
+MATOMO_GEO_DBIP=true
+```
+
+The dbip-city-lite-YYYY-MM.mmdb.gz file is installed in `misc/`
+
+Then, enable "DBIP/GeoIP 2" in matomo System menu to activate this provider
 
 ### Configuring e-mail sending
 

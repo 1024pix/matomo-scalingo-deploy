@@ -55,6 +55,11 @@
     "MATOMO_GENERAL_SALT": {
       "description": "Encryption salt used by Matomo",
       "generator": "secret"
+    },
+    "MATOMO_GEO_DBIP": {
+      "description": "Download and install DBIP/GeoIP2 database",
+      "required": false
+      "value": "true"
     }
   },
   "addons": [
