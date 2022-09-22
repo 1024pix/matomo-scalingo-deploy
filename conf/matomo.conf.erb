@@ -1,0 +1,82 @@
+root /app/<%= ENV['DOCUMENT_ROOT'] %>;
+
+add_header Referrer-Policy origin always; # make sure outgoing links don't show the URL to the Matomo instance
+add_header X-Content-Type-Options "nosniff" always;
+add_header X-XSS-Protection "1; mode=block" always;
+
+index index.php;
+# Support for favicon. Return a 204 (No Content) if the favicon
+# doesn't exist.
+location = /favicon.ico {
+             try_files /favicon.ico =204;
+}
+
+## only allow accessing the following php files
+location ~ ^/(index|matomo|piwik|js/index|plugins/HeatmapSessionRecording/configs)\.php$ {
+    include fastcgi_params;
+    fastcgi_param  SCRIPT_FILENAME    $document_root$fastcgi_script_name;
+    fastcgi_pass php;
+    fastcgi_buffers 256 4k;
+}
+
+## deny access to all other .php files
+location ~* ^.+\.php$ {
+        deny all;
+        return 404;
+}
+
+## serve all other files normally
+location / {
+        try_files $uri $uri/ =404;
+}
+
+## disable all access to the following directories
+#
+location ~ /(?:config|tmp|core|lang)/ {
+        deny all;
+        return 404; # replace with 404 to not show these directories exist
+}
+
+location ~ /\.ht {
+        deny  all;
+        return 403;
+    }
+
+location ~ js/container_.*_preview\.js$ {
+        expires off;
+        add_header Cache-Control 'private, no-cache, no-store';
+}
+
+location ~ \.(gif|ico|jpg|png|svg|js|css|htm|html|mp3|mp4|wav|ogg|avi|ttf|eot|woff|woff2)$ {
+        allow all;
+        ## Cache images,CSS,JS and webfonts for an hour
+        ## Increasing the duration may improve the load-time, but may cause old files to show after an Matomo upgrade
+        expires 1h;
+        add_header Pragma public;
+        add_header Cache-Control "public";
+}
+
+location ~ ^/(libs|vendor|plugins|misc|node_modules) {
+        deny all;
+        return 404;
+}
+
+location ~ /\. {
+     return 404;
+}
+
+location ~* (?:README|LICENSE|LEGALNOTICE|\.txt|\.md)$ {
+        deny all;
+        return 404;
+}
+
+# deny scalingo dir
+location ~ ^/(bin|scripts|conf) {
+        deny all;
+        return 404;
+}
+# deny scalingo file
+location ~* (?:Procfile|scalingo.json)$ {
+        deny all;
+        return 404;
+}

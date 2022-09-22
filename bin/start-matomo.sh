@@ -10,4 +10,6 @@ bin/set-license-key.sh
 
 bin/activate-plugins.sh
 
+bin/set-matomo-nginx.sh
+
 exec bash bin/run
