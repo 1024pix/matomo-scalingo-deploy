@@ -58,7 +58,7 @@
     },
     "MATOMO_GEO_DBIP": {
       "description": "Download and install DBIP/GeoIP2 database",
-      "required": false
+      "required": false,
       "value": "true"
     }
   },
