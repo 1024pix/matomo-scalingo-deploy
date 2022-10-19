@@ -12,7 +12,7 @@ This project is based on and uses the PaaS buildpack [matomo-buildpack](https://
 
 As a pre-requesites, you must be connected to a valid (with a valid payment method) Scalingo account.
 
-[![Deploy to Scalingo](https://cdn.scalingo.com/deploy/button.svg)](https://my.scalingo.com/deploy?source=https://github.com/n3xtcoder/nc-matomo-scalingo-deploy.git)
+[![Deploy to Scalingo](https://cdn.scalingo.com/deploy/button.svg)](https://my.scalingo.com/deploy?source=https://github.com/n3xtcoder/nc-matomo-scalingo-deploy)
 
 Then follow the steps below:
 
